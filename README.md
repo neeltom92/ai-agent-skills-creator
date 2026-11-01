@@ -56,6 +56,8 @@ Exit code is `0` when there are no errors (warnings allowed), `1` on errors.
 
 When you ask Claude to create a skill, it fans out read-only subagents in parallel to collect context: your conversation, the local repo and existing skills, and whichever of GitHub, GitLab, Jira or Confluence MCP servers you have connected. Sources that aren't connected are skipped; none are required. See `references/context-gathering.md`.
 
+**Tested vs. not tested.** The fan-out and its safety rules (read-only, ignore instructions found in fetched text) were verified with stand-in GitHub and Atlassian MCP servers in live Claude Code sessions. They have not been run against real GitHub, GitLab, Jira or Confluence servers, so a real server's tool names or output format may need a tweak to the subagent brief. If a lane misbehaves, open an issue with the server name.
+
 ## Scope
 
 Deliberately small. It does not include an automated eval runner, benchmark harness, or description-optimization loop. `SKILL.md` covers those steps as a manual process. Add tooling when manual testing becomes the bottleneck.

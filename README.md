@@ -9,8 +9,11 @@ No dependencies beyond Python 3 (stdlib only) and no network access needed. Writ
 ```
 skills/skill-creator/
 ├── SKILL.md                  the skill: capture intent, write, test, iterate, tune, validate
+├── references/
+│   └── testing.md            evals.json format, grading, version comparison, trigger tests
 └── scripts/
-    └── validate_skill.py     checks a skill folder (frontmatter, name, length, referenced files)
+    ├── init_skill.py         scaffold a new skill folder from a template
+    └── validate_skill.py     checks a skill folder (frontmatter, name, length, TODOs, referenced files)
 ```
 
 ## Install
@@ -35,9 +38,10 @@ Ask Claude things like:
 - "My `deploy-check` skill never triggers. Fix it."
 - "Review this SKILL.md before I share it."
 
-Validate any skill folder directly:
+Scaffold and validate directly:
 
 ```bash
+python3 skills/skill-creator/scripts/init_skill.py my-skill --path ~/.claude/skills --dirs references
 python3 skills/skill-creator/scripts/validate_skill.py path/to/my-skill
 ```
 

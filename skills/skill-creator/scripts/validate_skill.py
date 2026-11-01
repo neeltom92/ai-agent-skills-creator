@@ -68,6 +68,8 @@ def validate(folder):
 
     if not body.strip():
         errors.append("SKILL.md body is empty")
+    if "TODO" in text:
+        warns.append("SKILL.md still contains TODO placeholders")
     lines = len(text.splitlines())
     if lines > 500:
         warns.append(f"SKILL.md is {lines} lines (aim for <500; move bulk to references/)")

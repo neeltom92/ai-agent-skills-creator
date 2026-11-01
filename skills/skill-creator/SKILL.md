@@ -18,6 +18,12 @@ Pull answers from the conversation first (tools used, steps, corrections the use
 
 ## 2. Write the skill
 
+Scaffold the folder first, then replace all placeholder text in the generated `SKILL.md`:
+
+```bash
+python3 scripts/init_skill.py <skill-name> --path ~/.claude/skills --dirs references
+```
+
 A skill is a folder. Only `SKILL.md` is required:
 
 ```
@@ -48,7 +54,7 @@ Rules for a good skill:
 
 ## 3. Test it
 
-Write 2-3 realistic prompts, the kind a real user would type, with file names, context, and some mess. Run each one with the skill and read the results with the user.
+Write 2-3 realistic prompts, the kind a real user would type, with file names, context, and some mess. Run each one with the skill and read the results with the user. For the `evals.json` format, grading rules, and the version-comparison table, read `references/testing.md`.
 
 - Compare against a baseline when it matters: same prompt without the skill, or with the old version.
 - Judge output, not just success: wrong format, missed step, wasted work, ignored instructions.
@@ -67,7 +73,7 @@ Generalize from the failures. Do not patch the single test prompt. Rerun all pro
 
 ## 5. Tune the description
 
-Write about 10 prompts: some that should trigger the skill, some near-misses that should not (shared keywords, different intent). Run each in a fresh session and note which ones misfire. Adjust the description and repeat. Near-misses matter more than obvious cases.
+Write about 10 prompts: some that should trigger the skill, some near-misses that should not (shared keywords, different intent). Run each in a fresh session and note which ones misfire. Adjust the description and repeat. Near-misses matter more than obvious cases. The table format and stop rules are in `references/testing.md`.
 
 ## 6. Validate before sharing
 

@@ -21,7 +21,7 @@ Pull answers from the conversation first (tools used, steps, corrections the use
 Scaffold the folder first, then replace all placeholder text in the generated `SKILL.md`:
 
 ```bash
-python3 scripts/init_skill.py <skill-name> --path ~/.claude/skills --dirs references
+bash scripts/init_skill.sh <skill-name> --path ~/.claude/skills --dirs references
 ```
 
 A skill is a folder. Only `SKILL.md` is required:
@@ -78,7 +78,7 @@ Write about 10 prompts: some that should trigger the skill, some near-misses tha
 ## 6. Validate before sharing
 
 ```bash
-python3 scripts/validate_skill.py <path/to/skill-folder>
+bash scripts/validate_skill.sh <path/to/skill-folder>
 ```
 
 It checks frontmatter, name format and folder match, description length, body size, and that files referenced from `SKILL.md` exist. Fix every `ERROR`. Review each `WARN`.

@@ -2,7 +2,7 @@
 
 A minimal, self-contained `skill-creator` skill for Claude Code. It walks Claude through creating, testing, tuning, and validating other skills.
 
-No dependencies beyond Python 3 (stdlib only) and no network access needed. Written from scratch; it contains no third-party skill text.
+No dependencies beyond bash and standard Unix tools (works on macOS bash 3.2), and no network access needed. Written from scratch; it contains no third-party skill text.
 
 ## What's in it
 
@@ -12,8 +12,8 @@ skills/skill-creator/
 ├── references/
 │   └── testing.md            evals.json format, grading, version comparison, trigger tests
 └── scripts/
-    ├── init_skill.py         scaffold a new skill folder from a template
-    └── validate_skill.py     checks a skill folder (frontmatter, name, length, TODOs, referenced files)
+    ├── init_skill.sh         scaffold a new skill folder from a template
+    └── validate_skill.sh     checks a skill folder (frontmatter, name, length, TODOs, referenced files)
 ```
 
 ## Install
@@ -41,8 +41,8 @@ Ask Claude things like:
 Scaffold and validate directly:
 
 ```bash
-python3 skills/skill-creator/scripts/init_skill.py my-skill --path ~/.claude/skills --dirs references
-python3 skills/skill-creator/scripts/validate_skill.py path/to/my-skill
+bash skills/skill-creator/scripts/init_skill.sh my-skill --path ~/.claude/skills --dirs references
+bash skills/skill-creator/scripts/validate_skill.sh path/to/my-skill
 ```
 
 Exit code is `0` when there are no errors (warnings allowed), `1` on errors.

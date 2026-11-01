@@ -62,4 +62,4 @@ Deliberately small. It does not include an automated eval runner, benchmark harn
 
 ## License
 
-Not set yet. Add a `LICENSE` file before sharing outside your org.
+Apache License 2.0. See [LICENSE](LICENSE). You can copy, modify, and reuse this skill, including in your own org, as long as you keep the license notice.
